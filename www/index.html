@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" href="index.css">
+<title>FaChat</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+  <a href="/">
+  <img id="logo" alt="logo" src="logo.png"/>
+  </a>
+  <h1>FaChat</h1>
+  <div id="disc">Yet another web chat</div>
+</header>
+
+
+
+<div id="rooms">
+ <h3>Rooms:</h3>
+        <div class="room">
+            <a href="/0">
+                <div class="roomIcon">0</div>
+                <div class="roomTitle">room1</div>
+            </a>
+        </div>
+        <div class="room">
+            <a href="/0">
+                <div class="roomIcon">0</div>
+                <div class="roomTitle">room2</div>
+            </a>
+        </div>
+        <div class="room">
+            <a href="/0">
+                <div class="roomIcon">0</div>
+                <div class="roomTitle">room3</div>
+            </a>
+        </div>
+        <div class="room">
+            <a href="/0">
+                <div class="roomIcon">333</div>
+                <div class="roomTitle">room3</div>
+            </a>
+        </div>
+</div>
+
+<div id="create">
+  <h3>Create room:</h3>
+      <input type="text" id="room_field" size="20" maxlength="20" pattern="\w+" style="border: 1px solid #c6c6f6;" />
+      <button onclick="window.location=document.getElementById('room_field').value;" style="border: 1px solid #c6c6f6;">Create</button>
+</div>
+
+<footer>
+  <h6>FaChat 2014 &copy</h6>
+</footer>
+</div>
+</body>
+</html>

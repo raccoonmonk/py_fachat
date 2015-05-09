@@ -1,0 +1,103 @@
+#logo {
+	//z-index: -1;
+  float: left;
+	//position:relative;
+	width: 15%;
+	//margin-right: 20%;
+	max-width: 64px;
+}
+
+#wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  width: 70%;
+  min-width: 240px;
+}
+
+@media screen and (max-width: 800px){
+  #wrapper {
+  width: 90%;
+  }
+}  
+header {
+margin-right: 1%;
+margin-left: 1%;
+width: 98%;
+position:relative;
+text-align:center;
+}
+#rooms {
+display: inline-block;
+margin-top: 32px;
+padding-right: 1%;
+margin-right: 1%;
+margin-left: 1%;
+//float: left;
+width: 60%;
+min-width: 220px;
+}
+#create {
+margin-top: 32px;
+margin-right: 1%;
+//margin-left: 1%;
+float: left;
+//float: right;
+width: 220px;
+}
+footer {
+float: left;
+margin-top: 20px;
+margin-right: 1%;
+margin-left: 1%;
+clear: both;
+width: 98%;
+}
+div.room{
+display:inline-block;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 10px;
+}
+div.roomIcon{
+float:left;
+border-radius: 100%;
+background-color: #c6c6f6;
+width:32px;
+height:32px;
+text-align:center;
+padding:-30px;
+vertical-align: middle;
+line-height: 32px;
+color: black;
+}
+div.roomTitle{
+float:left;
+line-height: 32px;
+height:32px;
+margin-left: 5px;
+}
+
+#board {
+	border: 1px solid #ccc;
+//display: inline-block;
+margin-top: 32px;
+padding-right: 1%;
+margin-right: 1%;
+margin-left: 1%;
+float: left;
+width: 50%;
+//height: 60%;
+min-height: 300px;
+min-width: 220px;
+}
+#roster {
+	border: 1px solid #ccc;
+display: inline-block;
+margin-top: 32px;
+margin-right: 1%;
+//margin-left: 1%;
+//float: right;
+width: 20%;
+min-width: 100px;
+min-height: 300px;
+}

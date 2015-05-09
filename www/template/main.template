@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+<link rel="stylesheet" href="{{ static_url('main.css') }}">
+<title>FaChat</title>
+</head>
+<body>
+<div id="wrapper">
+<header>
+  <a href="http://chat.raccoonmonk.ru/">
+  <img id="logo" alt="logo" src="{{ static_url('logo.png') }}"/>
+  </a>
+  <h1>FaChat</h1>
+  <div id="disc">Yet another web chat</div>
+</header>
+
+
+
+<div id="rooms">
+<h3>Rooms:</h3>
+{% if rooms %}
+  {% for room in rooms.keys() %}
+  
+    <div class="room">
+            <a href="/room/{{ room }}">
+                <div class="roomIcon">{{ len(rooms[room]) }}</div>
+                <div class="roomTitle">{{ room }}</div>
+            </a>
+    </div>
+  {% end %}
+{% else %}
+    <div class="room">
+            <a href="/room/public">
+                <div class="roomIcon">0</div>
+                <div class="roomTitle">public</div>
+            </a>
+    </div>
+{% end %}
+</div>
+
+<div id="create">
+  <h3>Create room:</h3>
+      <input type="text" id="room_field" size="20" maxlength="20" pattern="\w+" style="border: 1px solid #c6c6f6;" />
+      <button onclick="window.location='/room/'+document.getElementById('room_field').value;" style="border: 1px solid #c6c6f6;">Create</button>
+</div>
+</div>
+</body>
+</html>

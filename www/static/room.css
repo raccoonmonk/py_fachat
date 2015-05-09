@@ -1,0 +1,81 @@
+#logo {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 40px;
+}
+
+#wrapper {
+	height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 240px;
+}
+header {
+position: fixed;
+border: 1px solid #ccf;
+background-color: #fff;
+height: 40px;
+width: 100%;
+z-index: 1;
+}
+#board {
+position: fixed;
+//border: 1px solid #ccf;
+overflow: auto;
+top: 42px;
+bottom: 25px;
+left: 0px;
+right: 152px;
+}
+#roster {
+position: fixed;
+background-color: #fff;
+right: 0px;
+top: 41px;
+bottom: 25px;
+width: 150px;
+z-index: 1;
+border: 1px solid #ccf;
+overflow: auto;
+}
+#sender {
+position: fixed;
+background-color: #fff;
+bottom: 0px;
+height: 25px;
+width: 100%;
+z-index: 1;
+}
+#txt_field {
+	position: fixed;
+	border: 1px solid #ccf;
+	left: 0;
+	right: 150px;
+	width: calc(100% - 152px);
+}
+#send_button {
+	position: fixed;
+	right: 0;
+  border: 1px solid #ccf;
+  width: 150px;
+}
+html,
+body {
+    height: 100%;
+    font-size: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+@media screen and (max-width: 400px) {
+  #roster,
+  #send_button {
+   visibility: collapse;
+  }
+  #board {
+    right: 0;
+  }
+  #txt_field {
+    width: 100%;
+  }
+}
