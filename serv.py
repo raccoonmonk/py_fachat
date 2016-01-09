@@ -8,26 +8,27 @@ import re
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("main.template", rooms = self.application.chans)
-        
+
 class RoomHandler(tornado.web.RequestHandler):
     def get(self, room):
-        self.render("room.template", room = room)        
-        
+        self.render("room.template", room = room)
+
 class WebsocketHandler(tornado.websocket.WebSocketHandler):
     """ self - ws connection
         chan - channel
         nick - nick """    
-        
+
     nick = None
     chan = None
-    
+
     def open(self, chan):
-        
-        chan = chan.decode("utf-8")
+
+        # str has no attribute 'decode'
+        #chan = chan.decode("utf-8")
         self.set_nodelay(True)
         self.chan = str(chan)
         self.application.prep_list.add(self)
-        
+
         if self.nick:
             nn = re.search(r'\W*(\w+)\W*', self.nick)
             if nn:
@@ -46,7 +47,7 @@ class WebsocketHandler(tornado.websocket.WebSocketHandler):
                 user.write_message(coder.formJson("roster", self.application.chans[self.chan]))
         else:
             self.write_message(coder.formJson("srv", "Enter your nickname"))
-                
+
     def on_message(self, message):
         if self in self.application.prep_list:
             #if user in temp list, give him a name
@@ -68,7 +69,7 @@ class WebsocketHandler(tornado.websocket.WebSocketHandler):
             for user in self.application.chans[self.chan]:
                 user.write_message(coder.formJson("roster", self.application.chans[self.chan]))
             return
-        
+
         for user in self.application.chans[self.chan]:
             if user != self:
                 user.write_message(coder.formJson("usr", self.nick, message))
@@ -87,7 +88,7 @@ class WebsocketHandler(tornado.websocket.WebSocketHandler):
             #send new roster to all    
             for user in self.application.chans[self.chan]:
                 user.write_message(coder.formJson("roster", self.application.chans[self.chan]))
-    
+
     def _not_supported(self, *args, **kwargs):
         pass
 
@@ -102,7 +103,6 @@ application = tornado.web.Application([
                                            (r".*/room/(\w+)$", RoomHandler),
                                            (r".*", MainHandler),
                                            ], **settings)
-#application.chans = {"main": {"anton", "dd"}, "second": {"1", "2"}}
 application.chans = {}
 application.prep_list = set()
 
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         ip = os.environ['OPENSHIFT_DIY_IP']
         port = os.environ['OPENSHIFT_DIY_PORT']
     except KeyError:
-        ip = "wschat"
+        ip = "localhost"
         port = 15001
     application.listen(port, ip)
     tornado.ioloop.IOLoop.instance().start()

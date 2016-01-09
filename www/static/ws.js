@@ -32,18 +32,15 @@ var roomTab = {
 window.onfocus = function () {
 	roomTab.glow(false);
 	roomTab.isActive = true;
-	
 };
+
 window.onblur = function () {
 	roomTab.glow(false);
 	roomTab.isActive = false;
 };
-function glow (bool) {
-	//document.title = title + " [" + unreadMess + "]";
-};
 
-if (document.domain == "wschat")
-	var url = "ws://wschat:15001/ws/";
+if (document.domain == "localhost")
+	var url = "ws://localhost:15001/ws/";
 else
 	var url = "ws://chat-raccoonmonk.rhcloud.com:8000/ws/";
 try {
